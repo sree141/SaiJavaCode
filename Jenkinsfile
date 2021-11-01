@@ -9,14 +9,13 @@ pipeline{
      stage("Maven Build"){
        steps{
             sh "/opt/apache-maven-3.8.3/bin/mvn package"
-            sh "mv target/*.war"
              }
             }
      stage("deploy-dev"){
        steps{
           sshagentsshagent(['3.82.186.105'])  {
           sh """
-          scp -o StrictHostKeyChecking=no target/myweb.war  
+          scp -o StrictHostKeyChecking=no target/*.war  
           ubuntu@3.82.186.105:/opt/tomcat/webapps/
           ssh ubuntu@3.82.186.105 /opt/tomcat/bin/shutdown.sh
           ssh ubuntu@3.82.186.105 /opt/tomcat/bin/startup.sh
