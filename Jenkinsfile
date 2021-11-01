@@ -14,12 +14,12 @@ pipeline{
             }
      stage("deploy-dev"){
        steps{
-          sshagent(['3.87.15.40']) {
+          sshagentsshagent(['3.82.186.105'])  {
           sh """
           scp -o StrictHostKeyChecking=no target/myweb.war  
-          ubuntu@3.87.15.40:/opt/tomcat/webapps/
-          ssh ubuntu@3.87.15.40 /opt/tomcat/bin/shutdown.sh
-          ssh ubuntu@3.87.15.40 /opt/tomcat/bin/startup.sh
+          ubuntu@3.82.186.105:/opt/tomcat/webapps/
+          ssh ubuntu@3.82.186.105 /opt/tomcat/bin/shutdown.sh
+          ssh ubuntu@3.82.186.105 /opt/tomcat/bin/startup.sh
            """
             }
           }
