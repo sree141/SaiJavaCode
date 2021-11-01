@@ -13,7 +13,7 @@ pipeline{
             }
      stage("deploy-dev"){
        steps{
-          sshagentsshagent(['3.82.186.105'])  {
+          sshagent(['3.82.186.105'])  {
           sh """
           scp -o StrictHostKeyChecking=no target/*.war  
           ubuntu@3.82.186.105:/opt/tomcat/webapps/
