@@ -15,7 +15,6 @@ pipeline{
      stage("deploy-dev"){
        steps{
           sshagent(['3.87.15.40']) {
-    // some block
           sh """
           scp -o StrictHostKeyChecking=no target/myweb.war  
           ubuntu@3.87.15.40:/opt/tomcat/webapps/
