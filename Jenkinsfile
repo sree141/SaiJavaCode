@@ -16,8 +16,8 @@ pipeline{
           sshagent(['3.82.186.105'])  {
           sh """
           scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/sree55/webapp/target/webapp.war ubuntu@3.82.186.105:/opt/apache-tomcat-9.0.54/webapps 
-          ssh ubuntu@3.82.186.105 /opt/tomcat/bin/shutdown.sh
-          ssh ubuntu@3.82.186.105 /opt/tomcat/bin/startup.sh
+          ssh ubuntu@3.82.186.105 /opt/apache-tomcat-9.0.54/bin/shutdown.sh
+          ssh ubuntu@3.82.186.105 /opt/apache-tomcat-9.0.54/bin/startup.sh
            """
             }
           }
